@@ -45,32 +45,35 @@ def start():
 #汉施翻译
 def ZhToSsbakh():
     os.system("cls")
-    filename = input("请输入字典文件路径及名称：")
-    print('%s' % filename)
+    filename = os.getcwd() + str("dic.txt")
     ZhSearch(filename)
 
 def ZhSearch(filename):
-    keyword = input("请输入汉语：")
-    one_of_one = "，"
-    last_of_one = "；"
-    last_of_all = "\n"
-    keyworld_one_of_one = keyword + one_of_one
-    keyword_last_of_one = keyword + last_of_one
-    keyword_last_of_all = keyword + last_of_all
     try:
         with open(filename,'r') as dic:
             os.system("cls")
             flag = 0
+            keyword = input("请输入汉语：")
+            print("ssbakh\t词性\t阴性\t阳性\t复数\t中文\n")
             for line in dic:
                 str_result = line
                 list = str_result.split('\t')
                 zh_all = list[5]
-                print("ssbakh\t词性\t阴性\t阳性\t复数\t中文\n")
-                if keyworld_one_of_one in zh_all or keyword_last_of_one in zh_all or keyword_last_of_all in zh_all:
+                zh_part = zh_all.split('；')
+                len_zh = 0
+                len_zh = len(zh_part)
+                i = 0
+                zh = []
+                while(i < len_zh ):
+                    buff_list = zh_part[i]
+                    zh_one = buff_list.split("，")
+                    zh += zh_one
+                    i += 1
+                if keyword in zh:
                     print (str_result)
                     flag = 1
-                elif not flag:
-                    buff = input("暂时没有收录这个词语，请更换词典文件或手动录入,按任意键回到初始菜单")
+            if not flag:
+                buff = input("暂时没有收录这个词语，请更换词典文件或手动录入,按任意键回到初始菜单")
             chose = input("搜索完成，是否继续搜索?[Y/N]")
             if chose == 'Y' or chose == 'y':
                 ZhSearch(filename)
@@ -87,31 +90,36 @@ def ZhSearch(filename):
             dic.close()
     except OSError as reason:
         print("出错啦！"+str(reason))
-        buff = input("按任意键返回初始菜单")
+        chose = input("是否手动输入词典文件路径？[Y/N]")
+        if chose == "Y" or chose == "y":
+            newfilename = input("请输入字典文件路径及名称：")
+            os.system("cls")
+            ZhSearch(newfilename)
+        elif chose == "N" or chose == "n":
+            buff = input("按任意键返回初始菜单，若要新建词典文件，请选择3")
 
 #施汉翻译
 def SsbakhToZh():
     os.system("cls")
-    filename = input("请输入字典文件路径及名称：")
-    print('%s' % filename)
+    filename = os.getcwd() + str("dic.txt")
     SsSearch(filename)
 
 def SsSearch(filename):
-    keyword = input("请输入Ssbakh：")
     try:
         with open(filename,'r') as dic:
             os.system("cls")
             flag = 0
+            keyword = input("请输入Ssbakh：")
+            print("ssbakh\t词性\t阴性\t阳性\t复数\t中文\n")
             for line in dic:
                 str_result = line
                 list = str_result.split('\t')
                 sk_all = list[0]
-                print("ssbakh\t词性\t阴性\t阳性\t复数\t中文\n")
-                if keyworld in sk_all:
+                if keyword in sk_all:
                     print (str_result)
                     flag = 1
-                elif not flag:
-                    buff = input("暂时没有收录这个词语，请更换词典文件或手动录入,按任意键回到初始菜单")
+            if not flag:
+                buff = input("暂时没有收录这个词语，请更换词典文件或手动录入,按任意键回到初始菜单")
             chose = input("搜索完成，是否继续搜索?[Y/N]")
             if chose == 'Y' or chose == 'y':
                 SsSearch(filename)
@@ -128,7 +136,13 @@ def SsSearch(filename):
             dic.close()
     except OSError as reason:
         print("出错啦！"+str(reason))
-        buff = input("按任意键返回初始菜单")
+        chose = input("是否手动输入词典文件路径？[Y/N]")
+        if chose == "Y" or chose == "y":
+            newfilename = input("请输入字典文件路径及名称：")
+            os.system("cls")
+            ZhSearch(newfilename)
+        elif chose == "N" or chose == "n":
+            buff = input("按任意键返回初始菜单，若要新建词典文件，请选择3")
 
 #打开文件
 def OpenDictionary(filename):
@@ -209,11 +223,10 @@ def EditFile(filename):
 def AddWord():
 	os.system("cls")
 	filename = input("请输入字典文件路径及名称：")
-	print('%s' % filename)
 	OpenDictionary(filename)
 
 
 
 if __name__ == "__main__":
-	while(1):
-		start()
+    while(1):
+        start()
