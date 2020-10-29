@@ -19,7 +19,7 @@ gnuo	ant.	-	-	-	四
 pol	ant.	-	-	-	五
 zuo	ant.	-	-	-	六
 mog	ant.	-	-	-	七
-ssuo	ant.	-	-	-	八·
+ssuo	ant.	-	-	-	八
 do	ant.	-	-	-	九
 hak	ant.	-	-	-	十
 guht	bit.	-ik	-ek	-	大，大的
