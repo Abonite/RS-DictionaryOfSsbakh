@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-# RS-DictionaryOfSsbakh
+RS-DictionaryOfSsbakh
+=====================
 ---
-这是一个简陋的词典应用，专用于翻译。
-=======
-＃RS-DictionaryOfSsbakh
-简陋的翻译器
->>>>>>> 0.0.1
+这是Rihsag世界观项目中的语言部分，提供一个简陋的Ssbakh翻译功能
+---
+# 环境依赖
+Python 3。8.0
