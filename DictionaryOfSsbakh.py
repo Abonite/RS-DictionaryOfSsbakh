@@ -45,8 +45,12 @@ def start():
 #汉施翻译
 def ZhToSsbakh():
     os.system("cls")
+<<<<<<< HEAD
     filename = input("请输入字典文件路径及名称：")
     print('%s' % filename)
+=======
+    filename = os.getcwd() + str("dic.txt")
+>>>>>>> 0.0.1
     ZhSearch(filename)
 
 def ZhSearch(filename):
@@ -91,13 +95,27 @@ def ZhSearch(filename):
             dic.close()
     except OSError as reason:
         print("出错啦！"+str(reason))
+<<<<<<< HEAD
         buff = input("按任意键返回初始菜单")
+=======
+        chose = input("是否手动输入词典文件路径？[Y/N]")
+        if chose == "Y" or chose == "y":
+            newfilename = input("请输入字典文件路径及名称：")
+            os.system("cls")
+            ZhSearch(newfilename)
+        elif chose == "N" or chose == "n":
+            buff = input("按任意键返回初始菜单，若要新建词典文件，请选择3")
+>>>>>>> 0.0.1
 
 #施汉翻译
 def SsbakhToZh():
     os.system("cls")
+<<<<<<< HEAD
     filename = input("请输入字典文件路径及名称：")
     print('%s' % filename)
+=======
+    filename = os.getcwd() + str("dic.txt")
+>>>>>>> 0.0.1
     SsSearch(filename)
 
 def SsSearch(filename):
@@ -132,7 +150,17 @@ def SsSearch(filename):
             dic.close()
     except OSError as reason:
         print("出错啦！"+str(reason))
+<<<<<<< HEAD
         buff = input("按任意键返回初始菜单")
+=======
+        chose = input("是否手动输入词典文件路径？[Y/N]")
+        if chose == "Y" or chose == "y":
+            newfilename = input("请输入字典文件路径及名称：")
+            os.system("cls")
+            ZhSearch(newfilename)
+        elif chose == "N" or chose == "n":
+            buff = input("按任意键返回初始菜单，若要新建词典文件，请选择3")
+>>>>>>> 0.0.1
 
 #打开文件
 def OpenDictionary(filename):
@@ -213,11 +241,19 @@ def EditFile(filename):
 def AddWord():
 	os.system("cls")
 	filename = input("请输入字典文件路径及名称：")
+<<<<<<< HEAD
 	print('%s' % filename)
+=======
+>>>>>>> 0.0.1
 	OpenDictionary(filename)
 
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
 	while(1):
 		start()
+=======
+    while(1):
+        start()
+>>>>>>> 0.0.1
